@@ -85,7 +85,7 @@ for i in range(len(list1)):
 for item in list1:
     print(item)
 print("dd",list1.count("Taobao"))
-#元组
+#元组33333
 
 
 
