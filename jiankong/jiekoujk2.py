@@ -60,23 +60,24 @@ if __name__ == '__main__':
     #
     # json_post = json.dumps(dict_post)
 
-    liu_url = "http://192.168.1.6:8666/studentRecoder/getClassUseRecoder.action"
-    project = "中医接口故障告警"
+    liu_url2 = "http://192.168.1.6:8666/studentR4ecoder/getClassUseRecoder.action"
+    listurl =["http://guanchu.tifenpai.com:9097/pu3blic_index.jsp","http://guangao.tifenpai.com:9091/public_index.jsp","http://guangao.tifenpai.com:9090/public_index.jsp","http://guangao.tifenpai.com:9094/public_index.jsp","http://jiahe.tifenpai.com:9092/public_index.jsp"]
+    project = "ols接口故障告警"
     nowdate = (time.strftime("%Y-%m-%d", time.localtime()))
 
-    for i in range(1):
+    for i in range(5):
         try:
             detailtime = (time.strftime("%Y-%m-%d %X", time.localtime()))
             # r1 = requests.post(zhongyi_url, timeout=3, data=json_post, headers={"Content-type": "application/json"})
-            r1 = requests.get(liu_url, timeout=3,headers={"Connection": "keep-alive","Content-Type":"text/html"})
+            r1 = requests.get(listurl[i], timeout=3,headers={"Connection": "keep-alive","Content-Type":"text/html"})
             time.sleep(1)
         except Exception as e:
-            res = '接口地址:%s ' % liu_url + "\n" + '接口故障或者超时报错内容: %s' % e + "\n" + '故障发生时间:%s' % detailtime
+            res = '接口地址:%s ' % listurl[i] + "\n" + '接口故障或者超时报错内容: %s' % e + "\n" + '故障发生时间:%s' % detailtime
             # 邮件登录及内容信息
             email_dict = {
                 # 手动填写，确保信息无误
                 "user": "980778026@qq.com",
-                "to": "193148037@qq.com",
+                "to": "193148037@qq.com,kaysa8023@163.com,Ql1870107022@163.com",
                 # 多个邮箱以','隔开；
                 "server": "smtp.qq.com",
                 'port': 465,  # values值必须int类型
@@ -93,11 +94,11 @@ if __name__ == '__main__':
 
         else:
             if r1.status_code != 200:
-                res = '接口地址: %s ' % liu_url + "\n" + ' ,接口状态为：%s:' % r1.status_code + "\n" + ' ,接口异常时间: %s' % detailtime
+                res = '接口地址: %s ' % listurl[i] + "\n" + ' ,接口状态为：%s:' % r1.status_code + "\n" + ' ,接口异常时间: %s' % detailtime
                 email_dict = {
                     # 手动填写，确保信息无误
                     "user": "980778026@qq.com",
-                    "to": "193148037@qq.com",
+                    "to": "193148037@qq.com,kaysa8023@163.com,Ql1870107022@163.com",
                     # 多个邮箱以','隔开；
                     "server": "smtp.qq.com",
                     'port': 465,  # values值必须int类型
@@ -112,6 +113,6 @@ if __name__ == '__main__':
                 sendmail.sendMail()
                 sendmail.close()
             else:
-                print('接口地址：%s, 接口响应时间: %s' % (liu_url, r1.elapsed.total_seconds()) + " ,接口状态为：%s ,时间:%s" % (
+                print('接口地址：%s, 接口响应时间: %s' % (listurl[i], r1.elapsed.total_seconds()) + " ,接口状态为：%s ,时间:%s" % (
                 r1.status_code, detailtime) + "\n")
 
