@@ -60,8 +60,8 @@ if __name__ == '__main__':
     #
     # json_post = json.dumps(dict_post)
 
-    liu_url2 = "http://192.168.1.6:8666/studentR4ecoder/getClassUseRecoder.action"
-    listurl =["http://guanchu.tifenpai.com:9097/pu3blic_index.jsp","http://guangao.tifenpai.com:9091/public_index.jsp","http://guangao.tifenpai.com:9090/public_index.jsp","http://guangao.tifenpai.com:9094/public_index.jsp","http://jiahe.tifenpai.com:9092/public_index.jsp"]
+    #liu_url2 = "http://192.168.1.6:8666/studentR4ecoder/getClassUseRecoder.action"
+    listurl =["http://guanchu.tifenpai.com:9097/olsw/#/index","http://guangao.tifenpai.com:9091/olsw/#/index","http://guangao.tifenpai.com:9090/olsw/#/index","http://jiahe.tifenpai.com:9092/olsw/#/index"]
     project = "ols接口故障告警"
     nowdate = (time.strftime("%Y-%m-%d", time.localtime()))
 
@@ -77,7 +77,7 @@ if __name__ == '__main__':
             email_dict = {
                 # 手动填写，确保信息无误
                 "user": "980778026@qq.com",
-                "to": "193148037@qq.com,kaysa8023@163.com,Ql1870107022@163.com",
+                "to": "193148037@qq.com,kaysa8023@163.com",
                 # 多个邮箱以','隔开；
                 "server": "smtp.qq.com",
                 'port': 465,  # values值必须int类型
@@ -98,7 +98,7 @@ if __name__ == '__main__':
                 email_dict = {
                     # 手动填写，确保信息无误
                     "user": "980778026@qq.com",
-                    "to": "193148037@qq.com,kaysa8023@163.com,Ql1870107022@163.com",
+                    "to": "193148037@qq.com,kaysa8023@163.com",
                     # 多个邮箱以','隔开；
                     "server": "smtp.qq.com",
                     'port': 465,  # values值必须int类型
